@@ -6,62 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
     <title>Hello, world!</title>
   </head>
   <body>
-
+    
+    <!--Conteúdo do Site-->
     <div class="jumbotron">
-        <!--Menu Navbar-->
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand">
-                <img src="img/reticencias.png" width="80px">
-            </a>
-            <span aria-hidden="true" style="font-size: 2em; color: white;">&times;</span>
-        </nav>
 
-        <!--Cards de Tarefas-->
-        <div class="row row-cols-1 row-cols-md-3">
-            <div class="col mb-4">
-              <div class="card h-100">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
+      <!--Menu Navbar-->
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">
+            <img src="img/reticencias.png" width="80px">
+        </a>
+        <span aria-hidden="true" style="font-size: 2em; color: white;">&times;</span>
+      </nav>
+
+      <!--Cards de Tarefas-->
+      <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+          <div class="card h-100">
+
+            <div class="card-header">
+              <img src="img/eu.jpeg" class="img-perfil rounded-circle">
+              <p class="font-italic font-weight-bold">Elzio Maia</p>              
             </div>
 
-            <div class="col mb-4">
-              <div class="card h-100">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a short card.</p>
-                </div>
-              </div>
+            <div class="card-body">
+              <h5 class="card-title font-weight-bold">Assunto do Evento</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
 
-            <div class="col mb-4">
-              <div class="card h-100">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                </div>
-              </div>
+            <div class="card-footer">
+              <a class="btn float-right" data-toggle="modal" data-target="#exampleModal" type="button"><img src="img/pencil.png" width="40px"></a>
+              <a class="btn float-right" href="#" role="button"><img src="img/eraser.png" width="40px"></a>
             </div>
 
-            <div class="col mb-4">
-              <div class="card h-100">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Form modal para cadastro de eventos-->
+      <img src="img/plus.png" class="opcoes" data-toggle="modal" data-target="#exampleModal" type="button">
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Inserir Evento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <!--Form Inserir-->
+              <form class="form-horizontal" method="POST" action="#">
+                  <input type="text" name="codigo" id="codigo" hidden>
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Autor</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="autor" class="form-control" id="autor" placeholder="Nome">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Título</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Título do Evento">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Descrição</label>
+                      <div class="col-sm-10">
+                          <textarea class="form-control" name="descricao" id="descricao" rows="3"></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-sm-2 center"><img src="img/schedule.png"></label>
+                      <div class="col-sm-10">
+                          <input type="date" name="date" class="form-control" id="date" onkeypress="DataHora(event, this)">
+                      </div>
+                  </div>
+              </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-outline-primary">Salvar alterações</button>
             </div>
           </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
