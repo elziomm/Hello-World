@@ -51,3 +51,24 @@ i{
     border-radius: 50%;
     box-shadow: 0 0 15px 5px rgba(19, 20, 20, 0.8);
 }
+
+
+/* Animação */
+.animacao{
+    animation: card-animation 4s forwards;
+}
+
+@keyframes card-animation{
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(-15px);
+    }
+    50%{
+        transform: translateY(15px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
