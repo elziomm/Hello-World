@@ -1,0 +1,30 @@
+* {
+    padding:0;
+    margin:0;
+}
+
+body{
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron{
+    position: relative;
+    margin: 3% 5%;
+    background-color:transparent !important; 
+    box-shadow: 0 0 15px 5px rgba(19, 20, 20, 0.8);
+}
+
+.navbar{
+    margin: -5.5% -2.8% 2%;
+}
+
+i{
+    color:white;
+}
+
+.card{
+    box-shadow: 0 0 15px 5px rgba(19, 20, 20, 0.8);
+    perspective: 1000px;
+}
