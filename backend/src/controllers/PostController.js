@@ -3,8 +3,12 @@ const Post = require('../models/Post');
 module.exports = {
     //para excluir um post
     async destroy(req, res){
+        console.log("entrou");
+
         const { post_id } = req.body;
 
+        console.log(post_id);
+        
         const post = await Post.findOne({ _id: post_id });
 
         const delete_post = await Post.collection.deleteOne(post, () => {
@@ -20,7 +24,6 @@ module.exports = {
         const { nome } = req.body;
         const { titulo } = req.body;
         const { descricao } = req.body;
-            
 
             const post = await Post.findOne({ _id: post_id });
     
