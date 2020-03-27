@@ -3,7 +3,7 @@ const Post = require('../models/Post');
 module.exports = {
     //para excluir um post
     async destroy(req, res){
-        const { post_id } = req.params;
+        const { post_id } = req.body;
 
         const post = await Post.findOne({ _id: post_id });
 
