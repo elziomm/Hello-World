@@ -38,48 +38,49 @@ function posts() { axios.get('http://localhost:3333/post')
         })
     }
 }
+posts();
+
+function edit(x){
+    _id = document.getElementById("codigo").value = lista[x.getAttribute("value")]._id,
+    document.getElementById("autor").value = lista[x.getAttribute("value")].autor;
+    document.getElementById("titulo").value = lista[x.getAttribute("value")].titulo;
+    document.getElementById("descricao").value = lista[x.getAttribute("value")].descricao;
+    
+    aux = 0;
+}
+
+function apagar(y){
+    if (confirm('Deseja realmente deletar este registro?')) {
+        axios.delete('http://localhost:3333/post', {
+            post_id: lista[y.getAttribute("value")]._id
+        });
+        window.location.reload();
+    }
+}
+
+function atualizar(){
+    var nome = document.getElementById("autor").value;
+    var titulo = document.getElementById("titulo").value;
+    var descricao = document.getElementById("descricao").value;
+
+    axios.put('http://localhost:3333/post', {
+        post_id: _id,
+        nome: nome,
+        titulo: titulo,
+        descricao: descricao
+    });
+    
+    window.location.reload();
     posts();
+}
 
-    function edit(x){
-        _id = document.getElementById("codigo").value = lista[x.getAttribute("value")]._id,
-        document.getElementById("autor").value = lista[x.getAttribute("value")].autor;
-        document.getElementById("titulo").value = lista[x.getAttribute("value")].titulo;
-        document.getElementById("descricao").value = lista[x.getAttribute("value")].descricao;
-        
-        aux = 0;
-    }
+function inserir(){
 
-    function apagar(y){
-        if (confirm('Deseja realmente deletar este registro?')) {
-            axios.delete('http://localhost:3333/post', {
-                post_id: lista[y.getAttribute("value")]._id
-            });
-            window.location.reload();
-        }
-    }
-
-    function atualizar(){
-        var nome = document.getElementById("autor").value;
-        var titulo = document.getElementById("titulo").value;
-        var descricao = document.getElementById("descricao").value;
-
-        axios.put('http://localhost:3333/post', {
-            post_id: _id,
-            nome: nome,
-            titulo: titulo,
-            descricao: descricao
-        });
-        
-        window.location.reload();
-    }
-
-    function inserir(){
-
-        axios.post('http://localhost:3333/post', {
-            autor: document.querySelector("[name='autor']").value,
-            titulo: document.querySelector("[name='titulo']").value,
-            descricao: document.querySelector("[name='descricao']").value
-        });
-        alert('Evento inserido com sucesso!');
-        window.location.reload();
-    }
+    axios.post('http://localhost:3333/post', {
+        autor: document.querySelector("[name='autor']").value,
+        titulo: document.querySelector("[name='titulo']").value,
+        descricao: document.querySelector("[name='descricao']").value
+    });
+    alert('Evento inserido com sucesso!');
+    window.location.reload();
+}

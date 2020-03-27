@@ -16,7 +16,7 @@ module.exports = {
 
     //para atualizar algum post
     async update(req, res){
-        const { post_id } = req.headers;
+        const { post_id } = req.body;
         const { nome } = req.body;
         const { titulo } = req.body;
         const { descricao } = req.body;
