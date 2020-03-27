@@ -1,14 +1,9 @@
 let lista;
 let aux = 0;
 let aux2 = 0;
-let config = {
-    headers: {
-      'Accept': '',
-      'Content-Type': 'multipart/form-data'
-    }
-}
+let _id = "";
 
-axios.get('http://localhost:3333/post')
+function posts() { axios.get('http://localhost:3333/post')
     .then( (response) => criaLista(response.data))
     .catch(error => console.log(error))
 
@@ -42,9 +37,11 @@ axios.get('http://localhost:3333/post')
             divAutor.appendChild(autor_um)
         })
     }
+}
+    posts();
 
     function edit(x){
-        document.getElementById("codigo").value = lista[x.getAttribute("value")]._id,
+        _id = document.getElementById("codigo").value = lista[x.getAttribute("value")]._id,
         document.getElementById("autor").value = lista[x.getAttribute("value")].autor;
         document.getElementById("titulo").value = lista[x.getAttribute("value")].titulo;
         document.getElementById("descricao").value = lista[x.getAttribute("value")].descricao;
@@ -62,14 +59,17 @@ axios.get('http://localhost:3333/post')
     }
 
     function atualizar(){
+        var nome = document.getElementById("autor").value;
+        var titulo = document.getElementById("titulo").value;
+        var descricao = document.getElementById("descricao").value;
+
         axios.put('http://localhost:3333/post', {
-            _id: document.getElementById("codigo").value,
-            autor: document.getElementById("autor").value,
-            titulo: document.getElementById("titulo").value,
-            descricao: document.getElementById("descricao").value,
-            config
+            post_id: _id,
+            nome: nome,
+            titulo: titulo,
+            descricao: descricao
         });
-        alert('Atualizado!');
+        
         window.location.reload();
     }
 
