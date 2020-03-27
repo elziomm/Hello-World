@@ -69,9 +69,8 @@ axios.get('http://localhost:3333/post')
             descricao: document.getElementById("descricao").value,
             config
         });
-        
-        window.location.reload();
         alert('Atualizado!');
+        window.location.reload();
     }
 
     function inserir(){
@@ -81,7 +80,6 @@ axios.get('http://localhost:3333/post')
             titulo: document.querySelector("[name='titulo']").value,
             descricao: document.querySelector("[name='descricao']").value
         });
-        
-        window.location.reload();
         alert('Evento inserido com sucesso!');
+        window.location.reload();
     }

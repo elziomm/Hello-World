@@ -70,7 +70,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick="inserir(this)">Salvar alterações</button>
+              <button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick="inserir(this)">Salvar</button>
             </div>
           </div>
         </div>
@@ -92,17 +92,17 @@
               
               <!--Form Inserir -->
               <form class="form-horizontal">
-                  <input type="text" name="codigo" id="codigo" hidden>
+                  <input type="text" id="codigo" hidden>
                   <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Autor</label>
                       <div class="col-sm-10">
-                        <input type="text" name="autor" class="form-control" id="autor" placeholder="Nome">
+                        <input type="text" class="form-control" id="autor" placeholder="Nome">
                       </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Título</label>
                     <div class="col-sm-10">
-                      <input type="text" name="titulo" class="form-control" id="titulo" placeholder="Título do Evento">
+                      <input type="text" class="form-control" id="titulo" placeholder="Título do Evento">
                     </div>
                   </div>
                   <div class="form-group row">
@@ -114,7 +114,7 @@
                   <div class="form-group row">
                       <label class="col-sm-2 center"><img src="img/schedule.png"></label>
                       <div class="col-sm-10">
-                          <input type="date" name="date" class="form-control" id="date" onkeypress="DataHora(event, this)">
+                          <input type="date" class="form-control" id="date" onkeypress="DataHora(event, this)">
                       </div>
                   </div>
               </form>
