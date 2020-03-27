@@ -22,6 +22,7 @@ axios.get('http://localhost:3333/post')
                 "          <div class=\"card h-100\">\n" +
                 "\n" +
                 "            <div class=\"card-header\" id=\"nome_autor\">\n" +
+                "                 <img src=\"img/avatar.png\" class=\"img-perfil\">\n" +
                 "\n" +
                 "              <p class=\"font-italic font-weight-bold\">" + `${autor.autor}` + "</p>\n" +
                 "            </div>\n" +
@@ -52,12 +53,11 @@ axios.get('http://localhost:3333/post')
     }
 
     function apagar(y){
-        if (confirm('Deseja realmente deletar este registro?' + lista[y.getAttribute("value")]._id)) {
+        if (confirm('Deseja realmente deletar este registro?')) {
             axios.delete('http://localhost:3333/post', {
                 post_id: lista[y.getAttribute("value")]._id
             });
             window.location.reload();
-            alert('Registro removido com sucesso!');
         }
     }
 
