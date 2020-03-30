@@ -2,7 +2,6 @@ let lista;
 let aux = 0;
 let aux2 = 0;
 let _id = "";
-let id = "";
 
 axios.get('http://localhost:3333/post')
     .then( (response) => criaLista(response.data))
@@ -30,7 +29,7 @@ axios.get('http://localhost:3333/post')
                 "\n" +
                 "            <div class=\"card-footer\">\n" +
                 "              <a class=\"btn float-right\" data-toggle=\"modal\" data-target=\"#atualizar\" type=\"button\" onclick=\"edit(this)\" value=\"" + aux++ +"\"><img src=\"img/pencil.png\" width=\"40px\"></a>\n" +
-                "              <a class=\"btn float-right\" onclick=\"apagar_post(this)\" value=\"" + aux2++ +"\" role=\"button\"><img src=\"img/eraser.png\" width=\"40px\"></a>\n" +
+                "              <a class=\"btn float-right\" role=\"button\"><img src=\"img/eraser.png\" width=\"40px\" onclick=\"apagar(this)\" value=\"" + aux2++ +"\"></a>\n" +
                 "            </div>\n" +
                 "\n" +
                 "          </div>\n" +
@@ -48,15 +47,18 @@ function edit(x){
     aux = 0;
 }
 
-function apagar_post(y){
-    var id = lista[y.getAttribute("value")]._id;
-    alert(id);
+function apagar(y){
 
-    axios.delete('http://localhost:3333/post', {
-            post_id: lista[y.getAttribute("value")]._id
-    });
+    if(confirm('Deseja realmente apagar esta Tarefa?')){
 
-    window.location.reload();
+        axios.delete('http://localhost:3333/post', {  
+            headers: {
+                'post_id': lista[y.getAttribute("value")]._id,
+                'Content-Type': 'application/json'
+            }
+        });
+        window.location.reload();
+    }
 }
 
 function atualizar(){

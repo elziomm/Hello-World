@@ -3,23 +3,19 @@ const Post = require('../models/Post');
 module.exports = {
     //para excluir um post
     async destroy(req, res){
-        console.log("entrou");
 
-        const { post_id } = req.body;
-
-        console.log(post_id);
+        const { post_id }  = req.headers;
         
         const post = await Post.findOne({ _id: post_id });
 
-        const delete_post = await Post.collection.deleteOne(post, () => {
-            console.log("deletado");
-        });
+        const delete_post = await Post.collection.deleteOne(post, () => {});
 
         return res.json(delete_post);
     },
 
     //para atualizar algum post
     async update(req, res){
+
         const { post_id } = req.body;
         const { nome } = req.body;
         const { titulo } = req.body;
